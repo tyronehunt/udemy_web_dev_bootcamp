@@ -1,16 +1,29 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+<!-- HEAD -->
 <head>
   <meta charset="utf-8">
   <title>HTML Overview</title>
 </head>
 
+<!-- Note that formatting should be done in CSS, but for tutorial sake -->
 <body>
-  <img src="https://image.shutterstock.com/image-vector/logo-vector-html-5-low-600w-1601607721.jpg" alt="An alternative description of image if it doesn't load." height="200px">
-  <h1>A reminder of core HTML functionality</h1>
-  <p><em>Re-covering the basics of HTML.</em></p>
-  <p> This is just a short introduction, nothing too complicated yet.</p>
+  <table cellspacing=20>
+    <tr>
+      <td>
+        <img src="https://image.shutterstock.com/image-vector/logo-vector-html-5-low-600w-1601607721.jpg"
+        alt="An alternative description of image if it doesn't load." height="200px">
+      </td>
+      <td>
+        <h1>A reminder of core HTML functionality </h1>
+        <p><em>Re-covering the basics of HTML.</em></p>
+        <p> This is just a short introduction, nothing too complicated yet.</p>
+      </td>
+    </tr>
+  </table>
+
+<!-- LISTS AND ANCHOR TAGS -->
   <hr>
   <h3>Main Documentation Source</h3>
   <ul>
@@ -29,8 +42,10 @@
     <li><a href="http://crop-circle.imageonline.co/">Crop-circle</a></li>
   </ol>
 
-  <h3>Core HTML Functionality</h3>
-  <table>
+<!-- TABLE EXAMPLE -->
+  <hr>
+  <h3>Table Example</h3>
+  <table cellspacing=10>
     <thead>
       <tr>
         <th>Attribute</th>
@@ -51,6 +66,24 @@
     </tfoot>
   </table>
 
+<!-- FORM EXAMPLE -->
+<hr>
+<h3>Form Example</h3>
+<form action="mailto:test@gmail.com" method="post", enctype="text/plain">
+  <label>Name: </label>
+  <input type="text" name="yourName" value=""><br>
+  <label>Email: </label>
+  <input type="email" name="yourEmail"><br>
+  <label>Message: </label><br>
+  <textarea name="yourMessage" id="" cols="80" rows="10"></textarea><br>
+  <input type="submit" name=""><br>
+
+
+  <h4>Other input types</h4>
+  Color picker: <input type="color" name="" value=""><br>
+  Checkbox: <input type="checkbox" name=""><br>
+  Password: <input type="password" name=""><br>
+</form>
 
 </body>
 
