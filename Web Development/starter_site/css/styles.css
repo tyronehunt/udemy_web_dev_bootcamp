@@ -1,0 +1,43 @@
+/******************* TAG SELECTORS ******************* */
+body {
+  background-color: #eeebdd;
+}
+
+hr {
+  background-color: white;
+  border-color: #810000;
+  border-width: 2px;
+  border-style: dotted none none;
+  height: 0;
+  width: 10%
+}
+
+h1 {
+  color: #630000;
+}
+h3 {
+  color: #1b1717;
+  font-size: 20px;
+}
+/******************* CLASS SELECTORS ******************* */
+.mountain {
+  background-color: navajowhite;
+  padding: 20px
+}
+
+.mountain:hover{
+  background-color: gold;
+}
+
+.logo {
+  padding-left: 120px
+}
+
+.circular {
+  border-radius: 100%
+}
+
+/******************* ID SELECTORS ******************* */
+#heading {
+  font-family: system-ui;
+}
