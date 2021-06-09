@@ -19,7 +19,7 @@ p {
 }
 
 .container-fluid{
-  padding:3% 15%;
+  padding:3% 15% 7%;
 }
 
 #title {
@@ -57,11 +57,15 @@ p {
 .title-image {
   width: 60%;
   transform: rotate(25deg);
+  position: absolute;
+  right: 20%;
 }
 
 /* Feature Section */
 #features {
   padding: 7% 15%;
+  background-color: #fff;
+  position: relative;
 }
 
 .feature-box {
@@ -104,5 +108,48 @@ p {
 .press-logo {
   width: 15%;
   margin: 20px 20px 50px;
+}
 
+/* Pricing Section */
+#pricing {
+  padding: 100px;
+  text-align: center;
+}
+
+.pricing-column {
+  padding: 3% 2%;
+}
+
+/* CTA Section */
+#cta {
+    background-color: #ff4c68;
+    color: #fff;
+    padding: 7% 15%;
+    text-align: center;
+}
+
+.cta-heading {
+  font-family: "Montserrat";  font-size: 3.5rem;  line-height: 1.5;  font-weight: 900;
+}
+
+/* Footer Section */
+
+#footer {
+  padding: 7% 15%;
+  text-align: center;
+}
+
+.social-icon {
+  margin:20px 10px;
+}
+
+@media (max-width: 1028px) {
+  .title-image{
+    position: static;
+    transform: rotate(0);
+  }
+
+  #title {
+    text-align: center;
+  }
 }
