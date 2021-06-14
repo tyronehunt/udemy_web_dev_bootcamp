@@ -1,0 +1,17 @@
+{
+  "name": "calculator-express",
+  "version": "1.0.0",
+  "description": "An intro to express server with a simple calculator.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node calculator.js"
+  },
+  "author": "Tyrone Hunt",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {}
+}
