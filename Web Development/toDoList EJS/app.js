@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
+const date = require(__dirname + "/date.js");
 
 const app = express();
 
 // Set placeholder for to do list item
-let items = ["Add an item like this"];
-let workItems = ["Add an item like this"];
+const items = ["Add an item like this"];
+const workItems = ["Add an item like this"];
 
 app.set('view engine', 'ejs');
 
@@ -15,15 +16,7 @@ app.use(express.static("public"));
 // ROOT get function
 app.get("/", function(req, res) {
 
-  let today = new Date();
-
-  let options = {
-    weekday: "long",
-    day: "numeric",
-    month: "long"
-  };
-
-  let day = today.toLocaleDateString("en-US", options);
+  const day = date.getDate();
 
   res.render('list', {
     listTitle: day,
@@ -49,7 +42,7 @@ app.get("/about", function(req, res){
 // Post from form in list.ejs
 app.post("/", function(req, res){
 
-  let item = req.body.newItem;
+  const item = req.body.newItem;
 
   if (req.body.list === "Work") {
     workItems.push(item);
