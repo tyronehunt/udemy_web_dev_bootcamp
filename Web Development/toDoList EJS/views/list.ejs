@@ -5,8 +5,18 @@
     <title>To Do List</title>
   </head>
   <body>
+    <h1> <%= kindOfDay %> </h1>
 
-    <h1>It's a <%=kindOfDay%> </h1>
+<form action="/" method="post">
+  <input type="text" name="newItem">
+  <button class="btn btn-warning" type="submit" name="button">Add</button>
+</form>
+
+    <ul>
+      <% for (var i=0; i < newListItems.length; i++){ %>
+        <li> <%= newListItems[i] %> </li>
+      <% } %>
+    </ul>
 
   </body>
 </html>
