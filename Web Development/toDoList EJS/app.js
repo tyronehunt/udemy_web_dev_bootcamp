@@ -4,41 +4,60 @@ const bodyParser = require("body-parser");
 const app = express();
 
 // Set placeholder for to do list item
-var items = ["Add an item like this"];
+let items = ["Add an item like this"];
+let workItems = ["Add an item like this"];
 
 app.set('view engine', 'ejs');
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+// ROOT get function
 app.get("/", function(req, res) {
 
-  var today = new Date();
+  let today = new Date();
 
-  var options = {
+  let options = {
     weekday: "long",
     day: "numeric",
     month: "long"
   };
 
-  var day = today.toLocaleDateString("en-US", options);
-
+  let day = today.toLocaleDateString("en-US", options);
 
   res.render('list', {
-    kindOfDay: day,
+    listTitle: day,
     newListItems: items
   });
-
 });
+
+// WORK get function
+app.get("/work", function(req, res){
+  res.render("list", {
+    listTitle: "Work List",
+    newListItems: workItems
+  });
+});
+
+
+// About get function
+app.get("/about", function(req, res){
+  res.render("about");
+});
+
 
 // Post from form in list.ejs
 app.post("/", function(req, res){
-  item = req.body.newItem;
 
-  items.push(item);
+  let item = req.body.newItem;
 
-  res.redirect("/")
-
+  if (req.body.list === "Work") {
+    workItems.push(item);
+    res.redirect("/work")
+  } else {
+    items.push(item);
+    res.redirect("/")
+  }
 })
 
 
