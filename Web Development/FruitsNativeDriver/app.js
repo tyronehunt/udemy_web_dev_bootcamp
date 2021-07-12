@@ -15,7 +15,7 @@ async function run() {
     const fruits = database.collection('fruits');
 
     // INSERT MODULE // This will insert every time app is run!
-    Create array of documents to insert
+    // Create array of documents to insert
     const docs = [
       { name: "Orange", qty: 5, review: "very tangy!"},
       { name: "Banana", qty: 10, review: "goes off too quickly." },
