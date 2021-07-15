@@ -14,6 +14,8 @@ const mongoose = require("mongoose");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
+var GoogleStrategy = require("passport-google-oauth2").Strategy;
+const findOrCreate = require("mongoose-findorcreate");
 
 const app = express();
 
@@ -41,26 +43,66 @@ mongoose.set("useCreateIndex", true); //required for passport-local-mongoose
 // Set up user database (using authentication)
 const userSchema = new mongoose.Schema ({
   email: String,
-  password: String
+  password: String,
+  googleId: String,
+  secret: String
 });
 
-// Add plugin for passport-local-mongoose
+// Add plugin for passport-local-mongoose and mongoose-findorcreate
 userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(findOrCreate);
 
 // Setup User model (as normal)
 const User = new mongoose.model("User", userSchema);
 
 // Configure passport local configurations
 passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, function(err, user) {
+    done(err, user);
+  });
+});
 
 
-// SET ROUTES
+// Google OAuth2 login
+passport.use(new GoogleStrategy({
+    clientID:     process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/auth/google/secrets",
+    passReqToCallback   : true
+  },
+  function(request, accessToken, refreshToken, profile, done) {
+    console.log(profile);
+    User.findOrCreate({ googleId: profile.id }, function (err, user) {
+      return done(err, user);
+    });
+  }
+));
+
+
+// ROUTES --------------------------------------------------------------------
 app.get("/", function(req, res){
   res.render("home");
 });
 
+// GOOGLE AUTH
+app.get("/auth/google",
+  passport.authenticate("google", { scope:
+      [ "email", "profile" ] }
+));
+
+app.get( "/auth/google/secrets",
+    passport.authenticate( 'google', {
+        successRedirect: '/secrets',
+        failureRedirect: '/login'
+}));
+
+// LOGIN AND REGISTER
 app.get("/login", function(req, res){
   res.render("login");
 });
@@ -70,14 +112,55 @@ app.get("/register", function(req, res){
 });
 
 
-// With level 1 to 4 security a /secrets route wasn't required as it was redirected to
-// from login or register. Now we have passport keeping track of session login.
-app.get("/secrets", function(req, res){
+// SUBMIT SECRETS
+app.get("/submit", function(req, res){
   if (req.isAuthenticated()){
-    res.render("secrets");
+    res.render("submit");
   } else {
     res.redirect("/login");
   }
+});
+
+app.post("/submit", function(req, res){
+  const submittedSecret = req.body.secret;
+  User.findById(req.user.id, function(err, foundUser) {
+    if (err) {
+      console.log(err);
+    } else {
+      if (foundUser) {
+        foundUser.secret = submittedSecret;
+        foundUser.save(function(){
+          res.redirect("/secrets");
+        });
+      }
+    }
+  });
+});
+
+
+// SECRETS ROUTE
+// With level 1 to 4 security a /secrets route wasn't required as it was redirected to
+// from login or register. Now we have passport keeping track of session login.
+// If page requires authentication to see:
+// app.get("/secrets", function(req, res){
+//   if (req.isAuthenticated()){
+//     res.render("secrets");
+//   } else {
+//     res.redirect("/login");
+//   }
+// });
+
+// If page is now open to all don't need to authenticate to show all secrets
+app.get("/secrets", function(req, res){
+  User.find({"secret": {$ne:null}}, function(err, foundUsers){
+    if (err) {
+      console.log(err);
+    } else {
+      if (foundUsers) {
+        res.render("secrets", {usersWithSecrets: foundUsers});
+      }
+    }
+  });
 });
 
 
