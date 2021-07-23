@@ -27,3 +27,6 @@ Desktop
 Mobile
 
 ![](./images/screenshot-mobile.png)
+
+### links
+Published at: https://pensive-cray-9d3e91.netlify.app/
