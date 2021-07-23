@@ -1,0 +1,255 @@
+body {
+  font-family: "Barlow", sans-serif;
+  font-size: 18px;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Fraunces", serif;
+}
+
+p {
+  color: hsl(232, 10%, 55%);
+  padding: 5% 0;
+  line-height: 1.5;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h4 {
+  font-size: 1rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* NAVBAR */
+.navbar-brand {
+  font-size: 2.5rem;
+}
+
+.nav-item {
+  padding: 0 20px;
+}
+
+.navbar {
+  padding: 50px 30px 0;
+}
+
+
+/* HERO IMAGE */
+.hero-image {
+  background-image: url("../images/desktop/image-header.jpg");
+  height: 800px;
+  background-position: center;
+  background-size: cover;
+}
+
+.hero-text {
+  text-align: center;
+  color: white;
+  letter-spacing: 10px;
+  font-size: 3.5rem;
+  margin-top: 150px;
+}
+
+/* GRID SECTION */
+.card {
+  padding: 0;
+}
+
+#image1 {
+  background-image: url("../images/desktop/image-transform.jpg");
+}
+
+#image2 {
+  background-image: url("../images/desktop/image-stand-out.jpg");
+}
+
+#image3 {
+  background-image: url("../images/desktop/image-graphic-design.jpg");
+}
+
+#image4 {
+  background-image: url("../images/desktop/image-photography.jpg");
+}
+
+.image-grid-cover {
+background-size: cover;
+min-height: 600px;
+border-radius: 0;
+}
+
+.feature-box {
+  padding: 12% 9% 9%;
+}
+
+.lower-feature-box {
+  padding: 60% 25% 2%;
+  text-align: center;
+}
+
+.darkGreen {
+  color: hsl(167, 40%, 24%);
+}
+
+.darkBlue {
+  color: hsl(212, 27%, 19%);
+}
+
+.darkGreen p {
+  font-size: 1rem;
+}
+
+.darkBlue p {
+  font-size: 1rem;
+}
+
+/* Testimonials Section */
+.testimonial-image {
+  border-radius: 100%;
+  width: 25%;
+  margin-bottom: 10%;
+}
+
+.testimonials h4 {
+  color: hsl(210, 4%, 67%);
+  letter-spacing: 5px;
+  text-align: center;
+  padding: 15% 0 8%;
+  font-size: 1.15rem;
+}
+
+.testimonial {
+  text-align: center;
+}
+
+.personName {
+  color: black;
+  font-family: "Fraunces", serif;
+  margin: 50px 0 0 ;
+}
+
+.role {
+  font-size: 0.8rem;
+  color: hsl(210, 4%, 67%);
+  padding-top: 0;
+}
+
+
+/* Beaker-Images Section */
+.gallery-images {
+  padding-top: 10%;
+}
+
+/* Footer Section */
+footer {
+  background-color: hsl(167, 44%, 70%);
+  color: hsl(167, 40%, 24%);
+  text-align: center;
+}
+
+#footer-title {
+  font-family: "Barlow", sans-serif;
+  font-size: 2rem;
+  padding: 50px 0 0;
+  margin: 0;
+  color: hsl(167, 40%, 24%, 0.75);
+}
+
+#footer-links a {
+  color: hsl(168, 34%, 41%);
+  padding: 0 40px;
+}
+#footer-links a:hover {
+  color: white;
+}
+
+#footer-social {
+  padding: 0 0 40px;
+}
+#footer-social a {
+  color: hsl(167, 40%, 24%, 0.75);
+  padding: 0 20px 0;
+}
+#footer-social a:hover {
+  color: white;
+}
+
+.social-icon a {
+  margin:20px 10px;
+  font-size: 1.3rem;
+}
+
+
+/* Modified Navbar - active link */
+@media only screen and (max-width : 2000px) {
+  .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+        color: black;
+        background-color: white;
+        padding: 15px 25px;
+        border-radius: 25px;
+        text-transform: uppercase;
+        font-family: "Fraunces", serif;
+  }
+  .navbar-dark .navbar-nav .nav-link.active:hover, .navbar-dark .navbar-nav .show>.nav-link:hover {
+        color: white;
+        background-color: lightblue;
+        padding: 15px 25px;
+        border-radius: 25px;
+        text-transform: uppercase;
+        font-family: "Fraunces", serif;
+  }
+}
+@media only screen and (max-width : 992px) {
+  .navbar-dark .navbar-nav .nav-link.active, .navbar-dark .navbar-nav .show>.nav-link {
+        color: black;
+        background-color: yellow;
+        max-width: 150px;
+        padding: 15px 25px;
+        border-radius: 25px;
+        text-transform: uppercase;
+        font-family: "Fraunces", serif;
+  }
+}
+
+/* Hover behaviours */
+.learn-more {
+}
+.learn-more:after {
+    content: " ";
+    display: block;
+    width: 120px;
+    height: .3em;
+    background-color: hsl(51, 100%, 49%, 0.4);
+    border-radius: 10px;
+}
+.learn-more:hover:after {
+    content: " ";
+    display: block;
+    width: 120px;
+    height: .3em;
+    background-color: hsl(51, 100%, 49%);
+    border-radius: 10px;
+}
+
+.learn-more2 {
+}
+.learn-more2:after {
+    content: " ";
+    display: block;
+    width: 120px;
+    height: .3em;
+    background-color: hsl(7, 99%, 70%, 0.4);
+    border-radius: 10px;
+}
+.learn-more2:hover:after {
+    content: " ";
+    display: block;
+    width: 120px;
+    height: .3em;
+    background-color: hsl(7, 99%, 70%);
+    border-radius: 10px;
+}
