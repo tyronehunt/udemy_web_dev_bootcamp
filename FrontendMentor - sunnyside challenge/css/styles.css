@@ -216,7 +216,9 @@ footer {
 }
 
 /* Hover behaviours */
-.learn-more {
+.learn-more, .learn-more2 {
+  font-family: "Fraunces", serif;
+  font-size: 1rem;
 }
 .learn-more:after {
     content: " ";
@@ -235,8 +237,6 @@ footer {
     border-radius: 10px;
 }
 
-.learn-more2 {
-}
 .learn-more2:after {
     content: " ";
     display: block;
