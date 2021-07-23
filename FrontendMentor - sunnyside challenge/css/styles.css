@@ -197,10 +197,6 @@ footer {
   .navbar-dark .navbar-nav .nav-link.active:hover, .navbar-dark .navbar-nav .show>.nav-link:hover {
         color: white;
         background-color: lightblue;
-        padding: 15px 25px;
-        border-radius: 25px;
-        text-transform: uppercase;
-        font-family: "Fraunces", serif;
   }
 }
 @media only screen and (max-width : 992px) {
@@ -208,10 +204,6 @@ footer {
         color: black;
         background-color: yellow;
         max-width: 150px;
-        padding: 15px 25px;
-        border-radius: 25px;
-        text-transform: uppercase;
-        font-family: "Fraunces", serif;
   }
 }
 
@@ -229,12 +221,7 @@ footer {
     border-radius: 10px;
 }
 .learn-more:hover:after {
-    content: " ";
-    display: block;
-    width: 120px;
-    height: .3em;
     background-color: hsl(51, 100%, 49%);
-    border-radius: 10px;
 }
 
 .learn-more2:after {
@@ -246,10 +233,5 @@ footer {
     border-radius: 10px;
 }
 .learn-more2:hover:after {
-    content: " ";
-    display: block;
-    width: 120px;
-    height: .3em;
     background-color: hsl(7, 99%, 70%);
-    border-radius: 10px;
 }
